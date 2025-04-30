@@ -49,4 +49,4 @@ for (x = 0; x < 10; x++) {
 }
 
 console.log("Qtd de numeros negativos são: " + contador);
-console.log(soma);
+console.log("A soma dos positivos é: " + soma);
