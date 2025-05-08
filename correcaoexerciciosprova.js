@@ -31,6 +31,8 @@ console.log("A maior idade foi " + maiorIdade);
 console.log("Teve " + qtdMulheresSal400MenorIdade + "mulheres com salario de ate 400, menores de 18.");
 
 
+
+
 let qtdCDS= prompt("Informe a quantidade de Cds: ");
 let precoTabua = prompt("Informe o preço da tabua: ");
 let precoSuporte = prompt("Informe o preço do suporte: ");
@@ -48,7 +50,10 @@ console.log("precisou de " + qtdTabuasCompletas + " de tabuas.");
 console.log("Com o custo de " + precoTabua + "$ por tabua e " + precoSuporte + "$ por suporte" );
 precoTabua= qtdTabuasCompletas*precoTabua;
 precoSuporte= (qtdTabuasCompletas*precoSuporte)*2;
-console.log("Com custo total de " + (precoTabua + precoSuporte));*/
+console.log("Com custo total de " + (precoTabua + precoSuporte));
+
+
+
 
 
 let a = parseInt(prompt("Qual a quantidade de itens?"));
@@ -60,24 +65,60 @@ console.log(calculaCustoTotalArmazenagem(a, b, c));
 function calculaCustoTotalArmazenagem(qtdTotalItens, precoCaixa, precoPalete) {
 
     let qtdCaixa = 0;
-    
-    if (qtdTotalItens % 10 == 0) {
-        qtdCaixa = qtdTotalItens / 10;
-    } else {
-        qtdCaixa = (qtdTotalItens / 10) + 1;
-    }
+        qtdCaixa = Math.ceil(qtdTotalItens / 10);
+  
 
     let qtdPalete = 0;
-
-    if (qtdCaixa % 5 == 0) {
-        qtdPalete = qtdCaixa / 5;
-    } else {
-        qtdPalete = (qtdCaixa / 5) + 1;
-    }
-
+        qtdPalete = Math.ceil(qtdCaixa / 5);
+   
     let precoTotalCaixa = qtdCaixa * precoCaixa;
     let precoTotalPalete = qtdPalete * precoPalete;
 
     return precoTotalCaixa + precoTotalPalete;
 }
 
+
+
+
+
+let a = prompt("Qual a quantidade de caixas para ser transportada? ");
+let b = prompt("Qual o custo do aluguel por caminhão? ");
+let c = prompt("Qual o custo do combustível gasto por viagem? ");
+
+function gastoTotal (qtdCaixas, aluguel, combustivel) {
+
+    let totalCaminhoes = Math.ceil(qtdCaixas / 100);
+
+    let aluguelTotal = aluguel * totalCaminhoes;
+
+    let combustivelTotal = combustivel * totalCaminhoes;
+
+    let custo = aluguelTotal + combustivelTotal;
+
+    return custo;
+}
+console.log("--- Custo Total Da entrega ---");
+console.log(gastoTotal(a,b,c));
+
+*/
+
+let a = prompt("Qual a quantidade de caixas para ser transportada? ");
+let b = prompt("Qual o custo do aluguel por caminhão? ");
+let c = prompt("Qual o custo do combustível gasto por viagem? ");
+
+let qtdCaminhoesCompletos=0; 
+let qtdCaminhoesImcompletos=0;
+
+qtdCaminhoesCompletos = parseInt(a/100);
+qtdCaminhoesImcompletos = qtdCaminhoesImcompletos%100;
+    if(qtdCaminhoesImcompletos>0) {
+        qtdCaminhoesImcompletos = 1;
+    }
+
+qtdCaminhoesCompletos = qtdCaminhoesCompletos + qtdCaminhoesImcompletos;
+let custoaluguel = b * qtdCaminhoesCompletos;
+let custocombustivel = c * qtdCaminhoesCompletos;
+
+let custotTotal = custoaluguel + custocombustivel;
+
+console.log("O custo será de: " + custotTotal);
