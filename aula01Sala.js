@@ -62,7 +62,7 @@ console.log("A soma dos positivos é: " + soma);
 
 
 let nomes = ["Ana", "joão", "Sabrina", "Maria", "Vitória", "Isabelly", "Paulo", "Eloá", "Isadora", "Joaquim"];
-let nomeBuscado = "fdf";
+let nomeBuscado = prompt("Qual nome deseja? ");
 let achou = false;
 
 for (let x = 0; x < 10; x++) {
@@ -74,7 +74,8 @@ for (let x = 0; x < 10; x++) {
 
 if (!achou) {
     console.log("O nome " + nomeBuscado + " não foi encontardo, tente novamente.");
-}*/
+}
+
 
 
 
@@ -96,4 +97,81 @@ console.log("A quantidade de nomes inseridos foi " + qtd);
 
 
 
+//Propriedades de array
 
+
+
+let nomes = [];
+let notas = [];
+let continuar = true;
+
+
+while (continuar) {
+    let nome = prompt("Digite o nome:");
+    nomes.push(nome);
+
+    let opcaoSN = prompt("Deseja inserir outro nome? (S/N): ");
+    if (opcaoSN.toLowerCase() !== "s") {
+        continuar = false;
+    }
+}
+
+
+for (let i = 0; i < nomes.length; i++) {
+    let nota = parseFloat(prompt(`Digite a nota de ${nomes[i]}:`));
+    notas.push(nota);
+}
+
+
+console.log("=== Lista de Alunos e Notas ===");
+for (let i = 0; i < nomes.length; i++) {
+    console.log(`${nomes[i]}: ${notas[i]}`);
+}
+
+ 
+
+
+
+let arrayLivros = ["A Espada de Sombras",
+    "O Trono Esquecido",
+    "As Lágrimas do Dragão",
+    "O Feiticeiro de Cinzas",
+    " A Noite dos Corvo",
+    "Os Segredos da Floresta Negra",
+    "A Coroa Partida"];
+for (x = 0; x < arrayLivros.length; x++) {
+    console.log("Posição [" + x + "]: " + arrayLivros[x]);
+}
+
+console.log("");
+console.log("--- AGORA IREMOS EXCLUIR O ULTIMO LIVRO ATÉ APARECER APENAS 1 ---");
+console.log("");
+
+while (arrayLivros.length > 0) {
+    console.log(arrayLivros.join(", "));
+    arrayLivros.pop();
+}
+console.log("");
+console.log("Não há mais livros disponíveis.");
+*/
+
+
+
+let Tarefas = [];
+let continuar = true;
+
+while (continuar) {
+    console.log("");
+    let opcaoSN = prompt("Deseja inserir uma tarefa? (s/n): ");
+    if (opcaoSN.toLowerCase() == "s") {
+        console.log("")
+        let novaTarefa = prompt("Digite a descrição da tarefa: ");
+        Tarefas.push(novaTarefa);
+        console.log("----------------------------")
+        console.log("Lista de tarefas atualizadas:\n-  " + Tarefas.join(";\n- "));
+    } else {
+        continuar = false;
+    }
+}
+console.log("--------------------------")
+console.log("Lista completa de tarefas:\n- " + Tarefas.join(";\n- "));
